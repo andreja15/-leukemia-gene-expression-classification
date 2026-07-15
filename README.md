@@ -8,26 +8,37 @@ This project compares five supervised learning methods to classify leukemia type
 
 **Methods**
 
-Ridge Regression, an L2-penalized logistic regression that retains all predictors
-Lasso Regression, an L1-penalized logistic regression that performs variable selection
-Elastic Net Regression, combining L1 and L2 penalties (alpha = 0.9)
-Sure Independence Screening + Lasso (SIS + Lasso), a two-stage screening and selection approach
-Random Forest, a tree-based ensemble method that captures non-linear relationships
+Ridge Regression, an L2-penalized logistic regression that retains all predictors.
+
+Lasso Regression, an L1-penalized logistic regression that performs variable selection.
+
+Elastic Net Regression, combining L1 and L2 penalties (alpha = 0.9).
+
+Sure Independence Screening + Lasso (SIS + Lasso), a two-stage screening and selection approach.
+
+Random Forest, a tree-based ensemble method that captures non-linear relationships.
 
 **Data**
 
 Source: Golub et al. (1999) leukemia dataset, publicly available on Kaggle.
+
 Training set: 38 patients (27 ALL, 11 AML)
+
 Independent test set: 34 patients (20 ALL, 14 AML)
+
 Features: 7,129 gene expression measurements per patient, reduced to 5,064 after filtering
+
 Outcome: leukemia type (ALL = 0, AML = 1)
 
 **Preprocessing**
 
-Transpose expression matrices so patients are rows and genes are columns
-Remove 58 Affymetrix control probes (AFFX prefix)
-Filter out low-variability genes using training set SD (SD of 100 or less removed), reducing genes from 7,071 to 5,064
-Standardize all features to mean 0 and SD 1 using training set parameters, applied to both train and test sets
+Transpose expression matrices so patients are rows and genes are columns.
+
+Remove 58 Affymetrix control probes (AFFX prefix).
+
+Filter out low-variability genes using the training set SD (genes with SD < 100 removed), reducing the number of genes from 7,071 to 5,064.
+
+Standardize all features to have mean 0 and SD 1 using the training set parameters, applied to both the train and test sets.
 
 **Results**
 
